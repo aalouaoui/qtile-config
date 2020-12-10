@@ -1,9 +1,10 @@
 from libqtile import layout
+from colors import colors
 
 layout_defaults = dict(
     margin=2,
     border_width=3,
-    border_focus="#FFFFFF",
+    border_focus=colors["layout_border"],
     grow_amount=3,
 )
 
@@ -45,4 +46,5 @@ floating_layout = layout.Floating(float_rules=[
     {'wname': 'Picture-in-picture'},  # Chrome Picture in Picture
     {'wname': 'Picture in picture'},  # Chrome Picture in Picture
     {'wmclass': 'Qalculate-gtk'},  # Qalculate-gtk
+    {'wmclass': ''},  # Non Classed Windows
 ], **floating_layout_defaults)

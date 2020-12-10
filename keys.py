@@ -66,6 +66,27 @@ keys = [
     # Key([mod], "e", lazy.spawncmd(),
     #     desc="Spawn a command using a prompt widget"),
     Key([mod], "r", lazy.spawn(launcher), desc="Run Rofi"),
+
+    # INCREASE/DECREASE BRIGHTNESS
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
+
+    # INCREASE/DECREASE/MUTE VOLUME
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
+
+    # MULTIMEDIA KEYS
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([mod, "shift"], "Down", lazy.spawn("playerctl play-pause")),
+
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([mod, "shift"], "Right", lazy.spawn("playerctl next")),
+
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    Key([mod, "shift"], "Left", lazy.spawn("playerctl previous")),
+
+    Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
 ]
 
 mouse = [

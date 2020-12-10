@@ -4,6 +4,7 @@ from keys import HOME, launcher
 from colors import colors
 
 ICON_DIR = HOME + ".config/qtile/icons/"
+TELA_ICONS = "/usr/share/icons/Tela-blue-dark/"
 
 left_sep = ""
 right_sep = ""
@@ -76,7 +77,11 @@ widgets = [
     # widget.WindowName(
     #     padding=5,
     # ),
-    widget.Systray(),
+    # widget.GenPollText(
+    #     func=,
+    #     update_interval=1,
+    # ),
+    widget.Systray(padding=5),
     widget.TextBox(
         **separator_defaults,
         # foreground=colors["red"],
@@ -84,56 +89,74 @@ widgets = [
         text=left_sep,
         foreground=colors["bg"],
     ),
-    widget.ThermalSensor(
-        threshold=85,
-        padding=5,
-        # background=colors["red"],
-        fmt=" {0} ",
+    # Player Control
+    widget.TextBox(
+        **separator_defaults,
+        # foreground=colors["red"],
+        # background=colors["bg"],
+        text=left_sep,
+        foreground=colors["battery_bg"],
+    ),
+    widget.BatteryIcon(
+        theme_path=TELA_ICONS+"24/panel/",
+        background=colors["battery_bg"],
+        mouse_callbacks={
+            'Button4': lambda qtile: qtile.cmd_spawn('xbacklight -inc 10'),
+            'Button5': lambda qtile: qtile.cmd_spawn('xbacklight -dec 10'),
+        }
+    ),
+    widget.Backlight(
+        backlight_name="intel_backlight",
+        fmt="{0} ",
+        background=colors["battery_bg"],
     ),
     widget.TextBox(
         **separator_defaults,
         # foreground=colors["blue"],
         # background=colors["red"],
         text=left_sep,
-        foreground=colors["bg"],
+        foreground=colors["volume_bg"],
+        background=colors["battery_bg"],
     ),
     widget.Volume(
         step=5,
         padding=0,
         margin=0,
-        # background=colors["blue"],
-        fmt=" Vol:  {0} "
+        theme_path=TELA_ICONS+"24/panel/",
+        volume_app="pavucontrol",
+        background=colors["volume_bg"],
+    ),
+    widget.Volume(
+        step=5,
+        padding=0,
+        margin=0,
+        volume_app="pavucontrol",
+        fmt=" {0} ",
+        background=colors["volume_bg"],
     ),
     widget.TextBox(
         **separator_defaults,
         text=left_sep,
-        foreground=colors["bg"],
-        # background=colors["blue"],
-        # foreground=colors["red"]
+        foreground=colors["clock_bg"],
+        background=colors["volume_bg"],
+    ),
+    widget.Clock(
+        background=colors["clock_bg"],
+        foreground=colors["clock_fg"],
+        format='%d %B | %H:%M',
+        padding=4,
+    ),
+    widget.TextBox(
+        **separator_defaults,
+        text=left_sep,
+        background=colors["clock_bg"],
+        foreground=colors["layout_icon_bg"],
     ),
     widget.CurrentLayoutIcon(
         custom_icon_paths=[ICON_DIR],
         padding=0,
         scale=0.6,
-        # background=colors["red"],
-    ),
-    widget.CurrentLayout(
-        padding=2,
-        fmt="  {0} ",
-        # background=colors["red"],
-    ),
-    widget.TextBox(
-        **separator_defaults,
-        # foreground=colors["blue"],
-        # background=colors["red"],
-        text=left_sep,
-        foreground=colors["bg"],
-    ),
-    widget.Clock(
-        # background=colors["blue"],
-        # foreground=colors["white"],
-        format='%d %B | %H:%M',
-        padding=4,
+        background=colors["layout_icon_bg"],
     ),
 ]
 
