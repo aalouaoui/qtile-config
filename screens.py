@@ -8,6 +8,7 @@ ICON_DIR = HOME + ".config/qtile/icons/"
 TELA_ICONS = "/usr/share/icons/Tela-blue-dark/"
 
 left_sep = ""
+sep = ""
 right_sep = ""
 
 separator_defaults = dict(
@@ -78,12 +79,12 @@ widgets = [
     # Center
     widget.Systray(
         padding=5,
-        margin=5,
+    ),
+    widget.TextBox(
+        text="  ",
     ),
     widget.TextBox(
         **separator_defaults,
-        # foreground=colors["red"],
-        # background=colors["bg"],
         text=left_sep,
         background=colors["bg"],
         foreground=colors["player_bg"],
@@ -101,10 +102,8 @@ widgets = [
     ),
     widget.TextBox(
         **separator_defaults,
-        # foreground=colors["red"],
-        # background=colors["bg"],
-        text=left_sep,
-        foreground=colors["battery_bg"],
+        text=sep,
+        foreground=colors["sep"],
         background=colors["player_bg"],
     ),
     widget.BatteryIcon(
@@ -122,10 +121,8 @@ widgets = [
     ),
     widget.TextBox(
         **separator_defaults,
-        # foreground=colors["blue"],
-        # background=colors["red"],
-        text=left_sep,
-        foreground=colors["volume_bg"],
+        text=sep,
+        foreground=colors["sep"],
         background=colors["battery_bg"],
     ),
     widget.Volume(
@@ -146,14 +143,14 @@ widgets = [
     ),
     widget.TextBox(
         **separator_defaults,
-        text=left_sep,
-        foreground=colors["clock_bg"],
+        text=sep,
+        foreground=colors["sep"],
         background=colors["volume_bg"],
     ),
     widget.Clock(
         background=colors["clock_bg"],
         foreground=colors["clock_fg"],
-        format='%d %B | %H:%M',
+        format='%d %B · %H:%M',
         padding=4,
     ),
     widget.TextBox(

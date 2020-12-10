@@ -15,12 +15,14 @@ colorscheme = dict(
     white="#ffffff"
 )
 
+primary = "blue"
+
 colors = dict(
-    layout_border=colorscheme["blue"],
+    layout_border=colorscheme[primary],
     bg=colorscheme["black"],
     rofi=colorscheme["white"],
 
-    groups_bg=colorscheme["blue"],
+    groups_bg=colorscheme[primary],
     groups_active=colorscheme["white"],
     groups_highlight=colorscheme["white"],
     groups_highlight_color=colorscheme["black"],
@@ -28,11 +30,12 @@ colors = dict(
 
     tasklist_bg=colorscheme["black"],
 
-    player_bg=colorscheme["purple"],
-    battery_bg=colorscheme["blue"],
-    volume_bg=colorscheme["purple"],
+    sep=colorscheme["white"],
+    player_bg=colorscheme[primary],
+    battery_bg=colorscheme[primary],
+    volume_bg=colorscheme[primary],
 
-    clock_bg=colorscheme["blue"],
+    clock_bg=colorscheme[primary],
     clock_fg=colorscheme["white"],
     layout_icon_bg=colorscheme["white"],
 )

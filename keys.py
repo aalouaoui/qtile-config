@@ -63,6 +63,7 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
+    Key([mod, "control"], "Delete", lazy.shutdown(), desc="Shutdown qtile"),
     # Key([mod], "e", lazy.spawncmd(),
     #     desc="Spawn a command using a prompt widget"),
     Key([mod], "r", lazy.spawn(launcher), desc="Run Rofi"),
