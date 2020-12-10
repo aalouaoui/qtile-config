@@ -28,6 +28,7 @@ colors = dict(
 
     tasklist_bg=colorscheme["black"],
 
+    player_bg=colorscheme["purple"],
     battery_bg=colorscheme["blue"],
     volume_bg=colorscheme["purple"],
 

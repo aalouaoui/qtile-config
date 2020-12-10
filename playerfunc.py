@@ -8,12 +8,21 @@ def is_playing():
     return cmd_out == "Playing"
 
 
-def get_player_title():
-    metadata = subprocess.check_output(
-        ["playerctl", "metadata title"]).decode('utf-8').strip()
-    metadata = metadata.split(",")[0]
+def currently_playing():
+    icon = "<span font_family='Fira Code Nerd Font' size='larger'> </span>"
+    try:
+        cmd_out = subprocess.check_output(
+            ["playerctl", "metadata", "title"]).decode('utf-8').strip()
+    except:
+        return icon
+
+    metadata = str(cmd_out.split(",")[0])
     metadata = re.sub(r"\s?\(.*\)", "", metadata)
-    return metadata
+
+    arr = metadata.split(" ")[0:10]
+    metadata = " ".join(arr)
+
+    return icon + metadata
 
 
 def play_pause():

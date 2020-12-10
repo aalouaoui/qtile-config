@@ -2,6 +2,7 @@ from libqtile.config import Screen
 from libqtile import widget, bar
 from keys import HOME, launcher
 from colors import colors
+from playerfunc import currently_playing
 
 ICON_DIR = HOME + ".config/qtile/icons/"
 TELA_ICONS = "/usr/share/icons/Tela-blue-dark/"
@@ -74,28 +75,37 @@ widgets = [
         markup_normal="",
 
     ),
-    # widget.WindowName(
-    #     padding=5,
-    # ),
-    # widget.GenPollText(
-    #     func=,
-    #     update_interval=1,
-    # ),
-    widget.Systray(padding=5),
+    # Center
+    widget.Systray(
+        padding=5,
+        margin=5,
+    ),
     widget.TextBox(
         **separator_defaults,
         # foreground=colors["red"],
         # background=colors["bg"],
         text=left_sep,
-        foreground=colors["bg"],
+        background=colors["bg"],
+        foreground=colors["player_bg"],
     ),
-    # Player Control
+    widget.GenPollText(
+        func=currently_playing,
+        mouse_callbacks={
+            'Button1': lambda qtile: qtile.cmd_spawn('playerctl play-pause'),
+            'Button4': lambda qtile: qtile.cmd_spawn('playerctl previous'),
+            'Button5': lambda qtile: qtile.cmd_spawn('playerctl next'),
+        },
+        update_interval=2,
+        background=colors["player_bg"],
+        padding=5,
+    ),
     widget.TextBox(
         **separator_defaults,
         # foreground=colors["red"],
         # background=colors["bg"],
         text=left_sep,
         foreground=colors["battery_bg"],
+        background=colors["player_bg"],
     ),
     widget.BatteryIcon(
         theme_path=TELA_ICONS+"24/panel/",
