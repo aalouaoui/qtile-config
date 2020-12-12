@@ -3,6 +3,7 @@ from libqtile import widget, bar
 from keys import HOME, launcher
 from colors import colors
 from playerfunc import currently_playing
+from groups import group_names
 
 ICON_DIR = HOME + ".config/qtile/icons/"
 TELA_ICONS = "/usr/share/icons/Tela-blue-dark/"
@@ -50,7 +51,8 @@ widgets = [
         margin_y=3,
         margin_x=2,
         padding_x=8,
-        fmt="<b>{}</b>"
+        fmt="<b>{}</b>",
+        visible_groups=group_names, # Fix bug of extra groups appearing from default config
     ),
     widget.TextBox(
         **separator_defaults,
@@ -112,12 +114,24 @@ widgets = [
         mouse_callbacks={
             'Button4': lambda qtile: qtile.cmd_spawn('xbacklight -inc 10'),
             'Button5': lambda qtile: qtile.cmd_spawn('xbacklight -dec 10'),
-        }
+        },
+        update_interval=1
     ),
     widget.Backlight(
         backlight_name="intel_backlight",
-        fmt="{0} ",
+        brightness_file="brightness",
+        max_brightness_file="max_brightness",
+        # fmt="{0} ",
+        format='{percent:2.0%}',
         background=colors["battery_bg"],
+        step=10,
+        # change_command='xbacklight -set {0}',
+        change_command="xbacklight -set {0}",
+        update_interval=0.2,
+        # mouse_callbacks={
+            # 'Button4': lambda qtile: qtile.cmd_spawn('xbacklight -inc 10'),
+            # 'Button5': lambda qtile: qtile.cmd_spawn('xbacklight -dec 10'),
+        # }
     ),
     widget.TextBox(
         **separator_defaults,

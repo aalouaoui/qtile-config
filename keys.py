@@ -13,7 +13,8 @@ file_manager = "thunar"
 my_browser = "chromium --password-store=gnome"
 code_editor = "code"
 calculator = "qalculate-gtk"
-meet_screenshot = "sh " + HOME + "scripts/meet-screenshot.sh"
+meet_screenshot = HOME + "scripts/meet-screenshot.sh"
+# screenshot = "mkdir ~/Desktop/screenshots;scrot ~/Desktop/screenshots/%Y-%m-%d-%H:%M:%S.jpg"
 
 keys = [
     # Switch between windows in current stack pane
@@ -25,6 +26,16 @@ keys = [
         desc="Move focus down in stack pane"),
     Key([mod], "d", lazy.layout.down(),
         desc="Move focus right in stack pane"),
+
+     # Resizing Bindings
+    Key([mod, "shift"], "w", lazy.layout.grow_up(),
+        desc="Grow Up"),
+    Key([mod, "shift"], "a", lazy.layout.grow_left(),
+        desc="Grow Left"),
+    Key([mod, "shift"], "s", lazy.layout.grow_down(),
+        desc="Grow Down"),
+    Key([mod, "shift"], "d", lazy.layout.grow_down(),
+        desc="Grow right"),
 
     # Move windows up or down in current stack
     Key([mod, "control"], "w", lazy.layout.shuffle_up(),
@@ -59,23 +70,34 @@ keys = [
     Key([mod], "b", lazy.spawn(my_browser), desc="Run Browser"),
     Key([mod], "c", lazy.spawn(code_editor), desc="Run Code Editor"),
     Key([mod], "m", lazy.spawn(calculator), desc="Run Calculator"),
+    # Key(["shift"], "Print", lazy.spawn(screenshot), desc="Full Screenshot"),
     Key([], "Print", lazy.spawn(meet_screenshot), desc="Meet Screenshot"),
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
-    Key([mod, "control"], "Delete", lazy.shutdown(), desc="Shutdown qtile"),
+    Key(["mod1", "control"], "Delete", lazy.shutdown(), desc="Shutdown qtile"),
     # Key([mod], "e", lazy.spawncmd(),
     #     desc="Spawn a command using a prompt widget"),
     Key([mod], "r", lazy.spawn(launcher), desc="Run Rofi"),
 
+    # Run XKill
+    Key(["control"], "Escape", lazy.spawn("xkill"), desc="Run Rofi"),
+
     # INCREASE/DECREASE BRIGHTNESS
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
+    Key([mod, "control"], "Up", lazy.spawn("xbacklight -inc 5")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
+    Key([mod, "control"], "Down", lazy.spawn("xbacklight -dec 5")),
+
 
     # INCREASE/DECREASE/MUTE VOLUME
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
+    Key([mod, "control"], "Left", lazy.spawn("amixer -q set Master 5%-")),
+    
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
+    Key([mod, "control"], "Right", lazy.spawn("amixer -q set Master 5%+")),
 
     # MULTIMEDIA KEYS
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),

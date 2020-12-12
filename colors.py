@@ -8,6 +8,8 @@ colorscheme = dict(
     yellow="#B5B13F",
 
     blue="#3F51B5",
+    blue_dark="#2D3A82",
+    blue_light="#4B61D9",
     purple="#8A3FB5",
     cyan="#3FB5A7",
 
@@ -24,9 +26,9 @@ colors = dict(
 
     groups_bg=colorscheme[primary],
     groups_active=colorscheme["white"],
-    groups_highlight=colorscheme["white"],
-    groups_highlight_color=colorscheme["black"],
-    groups_inactive=colorscheme["white"],
+    groups_highlight=colorscheme["blue_dark"],
+    groups_highlight_color=colorscheme["white"],
+    groups_inactive=colorscheme["silver"],
 
     tasklist_bg=colorscheme["black"],
 

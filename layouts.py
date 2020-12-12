@@ -46,5 +46,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wname': 'Picture-in-picture'},  # Chrome Picture in Picture
     {'wname': 'Picture in picture'},  # Chrome Picture in Picture
     {'wmclass': 'Qalculate-gtk'},  # Qalculate-gtk
+    {'wmclass': 'gcolor3'},  # GColor3
+    {'wmclass': 'pick-colour-picker'},  # Pick Colour Picker
     # {'wmclass': ''},  # Non Classed Windows
 ], **floating_layout_defaults)
