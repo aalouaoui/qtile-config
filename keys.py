@@ -14,7 +14,7 @@ my_browser = "chromium --password-store=gnome"
 code_editor = "code"
 calculator = "qalculate-gtk"
 meet_screenshot = HOME + "scripts/meet-screenshot.sh"
-# screenshot = "mkdir ~/Desktop/screenshots;scrot ~/Desktop/screenshots/%Y-%m-%d-%H:%M:%S.jpg"
+screenshot = HOME + "scripts/screenshot.sh"
 
 keys = [
     # Switch between windows in current stack pane
@@ -70,7 +70,7 @@ keys = [
     Key([mod], "b", lazy.spawn(my_browser), desc="Run Browser"),
     Key([mod], "c", lazy.spawn(code_editor), desc="Run Code Editor"),
     Key([mod], "m", lazy.spawn(calculator), desc="Run Calculator"),
-    # Key(["shift"], "Print", lazy.spawn(screenshot), desc="Full Screenshot"),
+    Key(["shift"], "Print", lazy.spawn(screenshot), desc="Full Screenshot"),
     Key([], "Print", lazy.spawn(meet_screenshot), desc="Meet Screenshot"),
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),

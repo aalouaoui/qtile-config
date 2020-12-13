@@ -14,7 +14,8 @@ colorscheme = dict(
     cyan="#3FB5A7",
 
     silver="#cecece",
-    white="#ffffff"
+    white="#ffffff",
+    white2="#dfdfdf",
 )
 
 primary = "blue"

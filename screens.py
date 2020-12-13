@@ -177,7 +177,8 @@ widgets = [
     widget.Clock(
         background=colors["clock_bg"],
         foreground=colors["clock_fg"],
-        format='%d %B · %H:%M',
+        format='%d %B | %H:%M',
+        fmt="<span font_family='Fira Code Nerd Font' size='larger'> </span> {}",
         padding=4,
     ),
     widget.TextBox(
