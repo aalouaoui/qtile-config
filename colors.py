@@ -34,6 +34,7 @@ colors = dict(
 
     sep=colorscheme["white"],
     player_bg=colorscheme[primary],
+    lang_bg=colorscheme[primary],
     battery_bg=colorscheme[primary],
     volume_bg=colorscheme[primary],
 

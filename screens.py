@@ -108,6 +108,19 @@ widgets = [
         foreground=colors["sep"],
         background=colors["player_bg"],
     ),
+    widget.KeyboardLayout(
+        background=colors["lang_bg"],
+        configured_keyboards=["us", "ar"],
+        display_map={"us":"EN", "ar": "AR"},
+        padding=5,
+        fmt="<span font_family='Fira Code Nerd Font' size='larger'>韛 </span> {}",
+    ),
+    widget.TextBox(
+        **separator_defaults,
+        text=sep,
+        foreground=colors["sep"],
+        background=colors["lang_bg"],
+    ),
     widget.BatteryIcon(
         theme_path=TELA_ICONS+"24/panel/",
         background=colors["battery_bg"],
