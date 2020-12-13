@@ -2,6 +2,20 @@
 import subprocess
 import re
 
+def get_status():
+    try:
+        cmd_out = subprocess.check_output(
+            ['playerctl','status','-f','{{lc(status)}}']
+            ).decode('utf-8').strip()
+    except:
+        cmd_out = ""
+    
+    if cmd_out == "playing":
+        return 2
+    if cmd_out == "paused":
+        return 1
+    return 0
+
 def get_status_icon():
     status = get_status()
     if status == 1:
@@ -11,17 +25,6 @@ def get_status_icon():
     else:
         icon = ""
     return f"<span font_family='Fira Code Nerd Font' size='larger'>{icon} </span>"
-
-
-def get_status():
-    cmd_out = subprocess.check_output(
-        ['playerctl','status','-f','{{lc(status)}}']
-        ).decode('utf-8').strip()
-    if cmd_out == "playing":
-        return 2
-    if cmd_out == "paused":
-        return 1
-    return 0
 
 def get_metadata():
     try:
