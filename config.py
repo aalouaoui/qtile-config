@@ -1,4 +1,5 @@
 from typing import List  # noqa: F401
+from libqtile.dgroups import simple_key_binder
 
 # Custom Imports
 from keys import keys, mouse
@@ -15,7 +16,9 @@ bring_front_click = True
 cursor_warp = False
 
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+# focus_on_window_activation = "smart"
+focus_on_window_activation = "focus"
+bring_front_click = True
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -27,3 +30,7 @@ focus_on_window_activation = "smart"
 # java that happens to be on java's whitelist.
 # wmname = "LG3D"
 wmname = "LG3D"
+
+# allow mod4+1 through mod4+0 to bind to groups; if you bind your groups
+# by hand in your config, you don't need to do this.
+dgroups_key_binder = simple_key_binder("mod4")
