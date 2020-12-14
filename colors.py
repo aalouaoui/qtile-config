@@ -4,6 +4,7 @@ colorscheme = dict(
     grey2="#79798f",
 
     red="#B53F3F",
+    red_light="#FF5959",
     green="#48B53F",
     yellow="#B5B13F",
 
@@ -35,6 +36,8 @@ colors = dict(
 
     sep=colorscheme["white"],
     player_bg=colorscheme[primary],
+    sensor_bg=colorscheme[primary],
+    sensor_alert=colorscheme["red_light"],
     lang_bg=colorscheme[primary],
     battery_bg=colorscheme[primary],
     volume_bg=colorscheme[primary],

@@ -121,6 +121,20 @@ widgets = [
         foreground=colors["sep"],
         background=colors["lang_bg"],
     ),
+    widget.ThermalSensor(
+        background=colors["sensor_bg"],
+        padding=5,
+        fmt="<span font_family='Fira Code Nerd Font' size='larger'> </span>{}",
+        tag_sensor="Package id 0",
+        foreground_alert=colors["sensor_alert"],
+        threshold=70,
+    ),
+    widget.TextBox(
+        **separator_defaults,
+        text=sep,
+        foreground=colors["sep"],
+        background=colors["sensor_bg"],
+    ),
     widget.BatteryIcon(
         theme_path=TELA_ICONS+"24/panel/",
         background=colors["battery_bg"],

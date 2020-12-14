@@ -48,5 +48,6 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'Qalculate-gtk'},  # Qalculate-gtk
     {'wmclass': 'gcolor3'},  # GColor3
     {'wmclass': 'pick-colour-picker'},  # Pick Colour Picker
+    {'wmclass': 'kvantummanager'},  # Kvantum Manager
     # {'wmclass': ''},  # Non Classed Windows
 ], **floating_layout_defaults)

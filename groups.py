@@ -2,11 +2,11 @@ from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 from keys import keys, mod
 
-groups = []
-
-group_names = ["1", "2", "3", "4", "5"]
-
 group_labels = ["WEB", "DEV", "TERM", "SYS", "MUS"]
+
+group_names = [str(num) for num,label in enumerate(group_labels, 1)]
+
+groups = []
 
 for i in range(len(group_names)):
     groups.append(
