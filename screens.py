@@ -2,7 +2,7 @@ from libqtile.config import Screen
 from libqtile import widget, bar
 from keys import HOME, launcher
 from colors import colors
-from playerfunc import currently_playing
+from spotify import spotify_info, spotify_ctrl, spotify_prev, spotify_next
 from groups import group_names
 
 ICON_DIR = HOME + ".config/qtile/icons/"
@@ -92,13 +92,13 @@ widgets = [
         foreground=colors["player_bg"],
     ),
     widget.GenPollText(
-        func=currently_playing,
+        func=spotify_info,
         mouse_callbacks={
-            'Button1': lambda qtile: qtile.cmd_spawn('playerctl play-pause'),
-            'Button4': lambda qtile: qtile.cmd_spawn('playerctl previous'),
-            'Button5': lambda qtile: qtile.cmd_spawn('playerctl next'),
+            'Button1': spotify_ctrl,
+            'Button4': spotify_prev,
+            'Button5': spotify_next,
         },
-        update_interval=2,
+        update_interval=1,
         background=colors["player_bg"],
         padding=5,
     ),

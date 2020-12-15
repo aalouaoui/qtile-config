@@ -84,10 +84,10 @@ keys = [
     Key(["control"], "Escape", lazy.spawn("xkill"), desc="Run Rofi"),
 
     # INCREASE/DECREASE BRIGHTNESS
-    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
-    Key([mod, "control"], "Up", lazy.spawn("xbacklight -inc 5")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
-    Key([mod, "control"], "Down", lazy.spawn("xbacklight -dec 5")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10")),
+    Key([mod, "control"], "Up", lazy.spawn("xbacklight -inc 10")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10")),
+    Key([mod, "control"], "Down", lazy.spawn("xbacklight -dec 10")),
 
 
     # INCREASE/DECREASE/MUTE VOLUME
