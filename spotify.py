@@ -14,6 +14,7 @@ def get_spotify_status():
 
 def get_title():
     title = run_cmd("playerctl -p spotify metadata title")
+    title = title.split(" -")[0]
     return re.sub(r"\s?\(.*\)", "", title)
 
 def get_artist():
