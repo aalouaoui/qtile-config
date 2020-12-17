@@ -1,6 +1,6 @@
 from libqtile.config import Screen
 from libqtile import widget, bar
-from keys import HOME, launcher
+from keys import HOME, launcher, calendar
 from colors import colors
 from spotify import spotify_info, spotify_ctrl, spotify_prev, spotify_next
 from groups import group_names
@@ -194,6 +194,7 @@ widgets = [
         format='%d %B | %H:%M',
         fmt="<span font_family='Fira Code Nerd Font' size='larger'> </span> {}",
         padding=4,
+        mouse_callbacks={'Button1': lambda qtile: qtile.cmd_spawn(calendar)},
     ),
     widget.TextBox(
         **separator_defaults,

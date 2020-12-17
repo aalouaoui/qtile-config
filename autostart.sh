@@ -4,8 +4,7 @@ picom &
 dunst &
 xfce4-clipman &
 xclip &
-# pamac-tray &
 python /home/khalid/scripts/wall.py
 nitrogen --restore &
+# blueman-applet &
 nm-applet &
-# plasma-browser-integration-host &

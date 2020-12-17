@@ -15,6 +15,7 @@ code_editor = "code"
 calculator = "qalculate-gtk"
 meet_screenshot = HOME + "scripts/meet-screenshot.sh"
 screenshot = HOME + "scripts/screenshot.sh"
+calendar = "gnome-calendar"
 
 keys = [
     # Switch between windows in current stack pane
